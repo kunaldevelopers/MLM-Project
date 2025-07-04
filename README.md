@@ -131,6 +131,47 @@ The build artifacts will be stored in the `dist/` directory.
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint for code quality
 
+## 🚀 Deployment
+
+### Vercel Deployment
+
+This project is optimized for deployment on Vercel. The repository includes the necessary configuration files to handle client-side routing properly.
+
+#### Configuration Files:
+
+- `vercel.json` - Handles SPA routing by redirecting all routes to index.html
+- `public/_redirects` - Additional fallback for routing (backup configuration)
+
+#### Deploy to Vercel:
+
+1. **Connect your repository** to Vercel
+2. **Import your project** in the Vercel dashboard
+3. **Deploy** - Vercel will automatically detect it's a Vite project
+
+#### Manual Deployment:
+
+```bash
+# Install Vercel CLI globally
+npm i -g vercel
+
+# Deploy from project directory
+vercel
+
+# For production deployment
+vercel --prod
+```
+
+#### SPA Routing Fix:
+
+The `vercel.json` configuration ensures that refreshing pages or direct URL access works correctly by redirecting all routes to `index.html`, allowing React Router to handle client-side routing.
+
+### Other Platforms
+
+For other deployment platforms (Netlify, GitHub Pages, etc.), ensure your hosting provider is configured to:
+
+1. Redirect all routes to `index.html`
+2. Serve the `dist/` folder after running `npm run build`
+
 ## 🔐 Authentication
 
 The platform includes a complete authentication system with:
